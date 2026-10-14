@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultura Síria</title>
+
+    <style>
+        :root {
+            --tema: claro;
+
+            --fundo-claro: #ffffff;
+            --texto-claro: #222222;
+            --card-claro: #f2f2f2;
+
+            --fundo-escuro: #222222;
+            --texto-escuro: #ffffff;
+            --card-escuro: #333333;
+
+            --verde: #007a3d;
+            --vermelho: #ce1126;
+        }
+
+        :root:has(#tema:checked) {
+            --tema: escuro;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+
+            background-color: var(--fundo-claro);
+            color: var(--texto-claro);
+
+            background-color: if(
+                style(--tema: escuro):
+                    var(--fundo-escuro);
+                else:
+                    var(--fundo-claro);
+            );
+
+            color: if(
+                style(--tema: escuro):
+                    var(--texto-escuro);
+                else:
+                    var(--texto-claro);
+            );
+        }
+
+        header {
+            text-align: center;
+            padding: 25px;
+            border-bottom: 5px solid var(--vermelho);
+        }
+
+        header h1 {
+            color: var(--verde);
+        }
+
+        nav {
+            background-color: var(--verde);
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+        }
+
+        #tema {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .botao-tema {
+            color: white;
+            cursor: pointer;
+            border: 1px solid white;
+            padding: 6px 10px;
+            border-radius: 15px;
+        }
+
+        .texto-claro {
+            display: none;
+        }
+
+        :root:has(#tema:checked) .texto-claro {
+            display: inline;
+        }
+
+        :root:has(#tema:checked) .texto-escuro {
+            display: none;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .introducao, .card, .sobre {
+            background-color: var(--card-claro);
+            background-color: if(
+                style(--tema: escuro):
+                    var(--card-escuro);
+                else:
+                    var(--card-claro);
+            );
+
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        h2, h3 {
+            color: var(--verde);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: var(--vermelho);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="checkbox" id="tema">
+
+    <header id="inicio">
+        <h1>Cultura Síria</h1>
+        <p>Conheça a história e as tradições da Síria!</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#cultura">Cultura</a>
+        <a href="#sobre">Sobre</a>
+
+        <label for="tema" class="botao-tema">
+            <span class="texto-escuro">🌙 Tema escuro</span>
+            <span class="texto-claro">☀️ Tema claro</span>
+        </label>
+    </nav>
+
+    <main>
+
+        <section class="introducao">
+            <h2>Conhecendo a Síria</h2>
+            <p>
+                A Síria fica no Oriente Médio e possui uma história muito
+                antiga. Sua cultura é conhecida pela culinária, música,
+                arquitetura e tradições familiares.
+            </p>
+        </section>
+
+        <section id="cultura">
+            <h2>Conheça um pouco mais</h2>
+
+            <div class="cards">
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=600&q=80"
+                    alt="Arquitetura do Oriente Médio">
+
+                    <h3>Arquitetura</h3>
+                    <p>
+                        Damasco é a capital da Síria e possui construções
+                        históricas muito antigas.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80"
+                    alt="Comida">
+
+                    <h3>Gastronomia</h3>
+                    <p>
+                        Quibe, homus e falafel são exemplos de comidas
+                        conhecidas na culinária síria.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80"
+                    alt="Música e celebração">
+
+                    <h3>Música</h3>
+                    <p>
+                        A música tradicional utiliza instrumentos como
+                        o oud, muito conhecido na cultura árabe.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="sobre" class="sobre">
+            <h2>Sobre o projeto</h2>
+            <p>
+                Este site foi criado para apresentar um pouco da cultura
+                síria, mostrando suas tradições, comidas e história.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 - Cultura Síria</p>
+    </footer>
+
+</body>
+</html>
